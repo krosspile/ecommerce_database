@@ -1,0 +1,65 @@
+\subsection{Entità}
+\begin{center}
+\begin{tabular}{ |c|c|c|} 
+\hline
+Entità & Attributi & Identificatore \\
+\hline
+\multirow{4}{6em}{Cliente} & \multirow{4}{8em}{ID, Nome, Cognome, Email, Password} & \multirow{4}{12em}{ID} \\
+ &  & \\
+ &  & \\
+ &  & \\
+\hline
+
+\multirow{4}{6em}{Ordine} & \multirow{4}{8em}{ID, ID\_Cliente, Totale, Indirizzo spedizione} & \multirow{4}{12em}{ID} \\
+ &  & \\
+ &  & \\
+ &  & \\
+\hline
+
+\multirow{4}{6em}{Recensione} & \multirow{4}{8em}{ID, ID\_prodotto, ID\_cliente, Commento, Rating} & \multirow{4}{12em}{ID} \\
+ &  & \\
+ &  & \\
+ &  & \\
+\hline
+
+\multirow{5}{6em}{Prodotto} & \multirow{5}{8em}{ID, Categoria, Marca, Modello, Prezzo, Taglia, Rating, Colore, Genere} & \multirow{5}{12em}{ID} \\
+ &  & \\
+ &  & \\
+ &  & \\
+ &  & \\
+\hline
+
+\multirow{4}{6em}{Prodotto scontato} & \multirow{4}{8em}{ID\_prodotto, Prezzo scontato, Data inizio, Data fine} & \multirow{4}{12em}{ID\_prodotto, Data inizio} \\
+ &  & \\
+ &  & \\
+ &  & \\
+\hline
+
+\multirow{3}{6em}{Categoria} & \multirow{3}{8em}{ID, Nome, Articoli totali, Rating medio} & \multirow{3}{12em}{ID} \\
+ &  & \\
+ &  & \\ 
+\hline
+
+\multirow{5}{6em}{Segnalazione} & \multirow{5}{8em}{ID, ID\_ordine, ID\_operatore, Descrizione, Data apertura, Data chiusura} & \multirow{5}{12em}{ID} \\
+ &  & \\
+ &  & \\
+ &  & \\
+ &  & \\
+\hline
+
+\multirow{3}{6em}{Report} & \multirow{3}{8em}{ID, Descrizione, ID\_segnalazione, Esito} & \multirow{3}{12em}{ID} \\
+&  & \\
+&  & \\ 
+\hline
+
+\multirow{3}{6em}{Rimborso} & \multirow{3}{8em}{ID, Importo, ID\_segnalazione, Data versamento} & \multirow{3}{12em}{ID} \\
+&  & \\
+&  & \\ 
+\hline
+
+\multirow{3}{6em}{Operatore} & \multirow{3}{8em}{ID, Nome, Cognome, Data di assunzione} & \multirow{3}{12em}{ID} \\
+&  & \\
+&  & \\ 
+\hline
+\end{tabular}
+\end{center}
