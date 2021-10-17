@@ -1,0 +1,45 @@
+\subsection{Analisi delle ridondanze}
+
+Gli attributi ridondanti sono:
+\begin{itemize}
+    \item \textbf{Categoria}: \textit{Articoli totali, Rating medio}
+    \item \textbf{Prodotto}: \textit{Rating}
+    \item \textbf{Ordine}: \textit{Totale}
+    \item \textbf{Report}: \textit{Esito}
+    \item \textbf{Dipendente}: \textit{Segnalazioni gestite}
+\end{itemize}
+
+\subsubsection{Articoli Totali}
+\textbf{Operazioni coinvolte}: O3, O9\\
+\textbf{Utilizzo}: Visualizzare numero di prodotti in una pagina web.\\
+\textbf{Accessi senza ridondanza}: circa \textit{1.000.000 / giorno}\\
+\textbf{Accessi con ridondanza}: circa \textit{600 / giorno}\\\\
+\textbf{La ridondanza viene mantenuta}.
+
+\subsubsection{Rating}
+\textbf{Operazioni coinvolte}: O2, O10  \\
+\textbf{Utilizzo}: Visualizzare valutazione media del prodotto in una pagina web.\\
+\textbf{Accessi senza ridondanza}: circa \textit{9.000.000 /giorno}\\
+\textbf{Accessi con ridondanza}: circa \textit{1010/ giorno}\\\\
+\textbf{La ridondanza viene mantenuta}.
+
+\subsubsection{Rating Medio}
+\textbf{Operazioni coinvolte}: O2\\
+\textbf{Utilizzo}: Visualizzare la statistica per elaborazioni interne.\\
+\textbf{Accessi senza ridondanza}: \textit{non comporta operazioni.}\\
+\textbf{Accessi con ridondanza}: \textit{circa 10 / giorno}\\\\
+È indifferente in termini prestazionali. \textbf{Viene eliminata la ridondanza}.
+
+\subsubsection{Totale}
+\textbf{Operazioni coinvolte}: O4  \\
+\textbf{Utilizzo}: Visualizzare il saldo totale in una pagina web.\\
+\textbf{Accessi senza ridondanza}: \textit{circa 525/ giorno}\\
+\textbf{Accessi con ridondanza}: \textit{circa 10/ giorno}\\\\
+\textbf{La ridondanza viene mantenuta}.
+
+\subsubsection{Segnalazioni gestite}
+\textbf{Operazioni coinvolte}: O5, O11  \\
+\textbf{Utilizzo}: Visualizzare il grado di esperienza di un dipendente\\
+\textbf{Accessi senza ridondanza}:\textit{circa 7000 /giorno}\\
+\textbf{Accessi con ridondanza}: \textit{circa 10 /giorno}\\\\
+\textbf{La ridondanza viene mantenuta}.
