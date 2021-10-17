@@ -4,17 +4,12 @@
 \hline
 Relazione & Entità partecipanti & Descrizione & Attributi \\
 \hline
-\multirow{3}{6em}{Effettua} & \multirow{3}{12em}{Cliente, Ordine} & \multirow{3}{8em}{Un cliente acquista uno o più prodotti} & \multirow{3}{12em}{Data} \\
+\multirow{3}{6em}{Effettua} & \multirow{3}{12em}{Cliente, Ordine} & \multirow{3}{8em}{Un cliente acquista uno o più prodotti} & \multirow{3}{12em}{} \\
  &  &  & \\
  &  &  & \\
 \hline
 
-\multirow{3}{6em}{Scrive} & \multirow{3}{12em}{Cliente, Recensione} & \multirow{3}{8em}{Un cliente recensisce un prodotto} & \multirow{3}{12em}{Data} \\
- &  &  & \\
- &  &  & \\
-\hline
-
-\multirow{3}{6em}{Su} & \multirow{3}{12em}{Recensione, Prodotto} & \multirow{3}{8em}{Specifica l'oggetto verso cui è rivolta la recensione} & \multirow{3}{12em}{} \\
+\multirow{3}{6em}{Recensisce} & \multirow{3}{12em}{Cliente, Prodotto} & \multirow{3}{8em}{Un cliente recensisce un prodotto} & \multirow{3}{12em}{Data, Rating, Commento} \\
  &  &  & \\
  &  &  & \\
 \hline
@@ -29,7 +24,7 @@ Relazione & Entità partecipanti & Descrizione & Attributi \\
  &  &  & \\ 
 \hline
 
-\multirow{3}{6em}{Contiene} & \multirow{3}{12em}{Ordine, Prodotto} & \multirow{3}{8em}{Lega ordine con un prodotto univoco} & \multirow{3}{12em}{Quantità} \\
+\multirow{3}{6em}{Contiene} & \multirow{3}{12em}{Ordine, Prodotto} & \multirow{3}{8em}{Prodotti contenuti nell'ordine} & \multirow{3}{12em}{Quantità} \\
  &  &  & \\
  &  &  & \\
 \hline
@@ -39,17 +34,12 @@ Relazione & Entità partecipanti & Descrizione & Attributi \\
  &  &  & \\
 \hline
 
-\multirow{3}{6em}{Associato a} & \multirow{3}{12em}{Segnalazione, Report} & \multirow{3}{8em}{Lega una segnalazione alla risoluzione} & \multirow{3}{12em}{} \\
- &  &  & \\
- &  &  & \\
-\hline
-
-\multirow{3}{6em}{È gestita da} & \multirow{3}{12em}{Segnalazione, Dipendente} & \multirow{3}{8em}{Presa in carico di una segnalazione per un operatore} & \multirow{3}{12em}{} \\
+\multirow{3}{6em}{Gestisce} & \multirow{3}{12em}{Segnalazione, Dipendente} & \multirow{3}{8em}{Un dipendente chiude la segnalazione} & \multirow{3}{12em}{Data, Report} \\
 &  &  & \\
 &  &  & \\ 
 \hline
 
-\multirow{3}{6em}{Permette} & \multirow{3}{12em}{Segnalazione, Rimborso} & \multirow{3}{8em}{Assegnazione di un rimborso} & \multirow{3}{12em}{} \\
+\multirow{3}{6em}{Rimborsa} & \multirow{3}{12em}{Dipendente, Cliente} & \multirow{3}{8em}{Assegnazione di un rimborso} & \multirow{3}{12em}{Data, Importo} \\
 &  &  & \\
 &  &  & \\ 
 \hline
