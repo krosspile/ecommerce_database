@@ -1,13 +1,13 @@
 \subsection{Modello relazionale}
 
 \textbf{Categoria}(\uline{ID}, Nome, Articoli totali)\\
-\textbf{Carrello}(\uline{\dashuline{ID\_ordine, ID\_prodotto}}, Quantità)\\
-\textbf{Cliente}(\uline{ID}, Nome, Cognome, Email, Password)\\
+\textbf{Cliente}(\uline{ID}, Nome, Cognome, Email, Hash Password)\\
 \textbf{Segnalazione}(\dashuline{\uline{ID\_ordine}}, Descrizione, Data apertura)\\
-\textbf{Dipendente}(\uline{ID}, Nome, Cognome, Data di assunzione)\\
+\textbf{ContenutoOrdine}(\uline{\dashuline{ID\_ordine, ID\_prodotto}}, Quantità)\\
 \textbf{Ordine}(\uline{ID},\dashuline{ID\_cliente}, Data, Totale, Indirizzo spedizione)\\
-\textbf{Report}(Descrizione, Data, \uline{\dashuline{ID\_segnalazione, ID\_dipendente}})\\
 \textbf{Recensione}(\uline{\dashuline{ID\_cliente, ID\_prodotto}}, Data, Commento, Rating)\\
 \textbf{Rimborso}(\uline{ID}, \dashuline{ID\_cliente, ID\_dipendente}, Importo, Data versamento)\\
-\textbf{Prodotto\_Scontato}(\uline{\dashuline{ID\_prodotto}, Data inizio}, Prezzo scontato, Data fine)\\
-\textbf{Prodotto}(\uline{ID}, ID\_categoria, Marca,  Modello, Prezzo, Taglia, Colore, Rating, Genere)\\
+\textbf{SegnalazioneGestita}(\uline{\dashuline{ID\_segnalazione, ID\_dipendente}}, Descrizione, Data)\\
+\textbf{ProdottoScontato}(\uline{\dashuline{ID\_prodotto}, Data inizio}, Prezzo scontato, Data fine)\\
+\textbf{Dipendente}(\uline{ID}, Nome, Cognome, Data di assunzione, Segnalazioni gestite)\\
+\textbf{Prodotto}(\uline{ID}, \dashuline{ID\_categoria}, Marca,  Modello, Prezzo, Taglia, Colore, Rating, Genere)\\
