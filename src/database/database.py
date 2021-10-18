@@ -6,7 +6,7 @@ cur = con.cursor()
 
 
 def init_tables():
-    tables = open('../tables.sql', 'r').read().split(';')[:-1]
+    tables = open('tables.sql', 'r').read().split(';')[:-1]
 
     for table in tables:
         cur.execute(table + ";")
