@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Cliente (
 CREATE TABLE IF NOT EXISTS Categoria (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome VARCHAR(20) NOT NULL,
-    articoli_totali INTEGER NOT NULL
+    articoli_totali INTEGER NULL
 );
 
 CREATE TABLE IF NOT EXISTS Ordine (
@@ -26,7 +26,6 @@ CREATE TABLE IF NOT EXISTS Segnalazione (
     id_ordine INTEGER NOT NULL,
     data_apertura DATE NOT NULL,
     descrizione VARCHAR(200),
-    indirizzo_spedizione TEXT NOT NULL,
     FOREIGN KEY(id_ordine) REFERENCES Ordine(id),
     PRIMARY KEY(id_ordine)
 );
@@ -36,8 +35,7 @@ CREATE TABLE IF NOT EXISTS Dipendente (
     data_assunzione DATE NOT NULL,
     nome VARCHAR(20),
     cognome VARCHAR(20),
-    indirizzo_spedizione TEXT NOT NULL,
-    segnalazioni_gestite INTEGER NOT NULL
+    segnalazioni_gestite INTEGER NULL
 );
 
 CREATE TABLE IF NOT EXISTS Prodotto (
@@ -48,7 +46,7 @@ CREATE TABLE IF NOT EXISTS Prodotto (
     taglia VARCHAR(6),
     colore VARCHAR(20),
     prezzo INTEGER NOT NULL,
-    rating integer NOT NULL,
+    rating integer NULL,
     genere VARCHAR(20),
     UNIQUE(marca, modello, taglia, colore, genere),
     FOREIGN KEY (id_categoria) REFERENCES Categoria(id)
