@@ -10,14 +10,15 @@ CREATE TABLE IF NOT EXISTS Cliente (
 CREATE TABLE IF NOT EXISTS Categoria (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome VARCHAR(20) NOT NULL,
-    articoli_totali INTEGER NOT NULL
+    articoli_totali INTEGER NULL,
+    UNIQUE(nome)
 );
 
 CREATE TABLE IF NOT EXISTS Ordine (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     id_cliente INTEGER NOT NULL,
     data DATE NOT NULL,
-    totale INTEGER NOT NULL,
+    totale INTEGER NULL,
     indirizzo_spedizione VARCHAR(30) NOT NULL,
     FOREIGN KEY(id_cliente) REFERENCES Cliente(id)
 );
@@ -26,7 +27,6 @@ CREATE TABLE IF NOT EXISTS Segnalazione (
     id_ordine INTEGER NOT NULL,
     data_apertura DATE NOT NULL,
     descrizione VARCHAR(200),
-    indirizzo_spedizione TEXT NOT NULL,
     FOREIGN KEY(id_ordine) REFERENCES Ordine(id),
     PRIMARY KEY(id_ordine)
 );
@@ -34,21 +34,22 @@ CREATE TABLE IF NOT EXISTS Segnalazione (
 CREATE TABLE IF NOT EXISTS Dipendente (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     data_assunzione DATE NOT NULL,
-    nome VARCHAR(20),
-    cognome VARCHAR(20),
-    indirizzo_spedizione TEXT NOT NULL,
-    segnalazioni_gestite INTEGER NOT NULL
+    nome VARCHAR(20) NOT NULL,
+    cognome VARCHAR(20) NOT NULL,
+    codice_fiscale VARCHAR(16) NOT NULL,
+    segnalazioni_gestite INTEGER NULL,
+    UNIQUE(codice_fiscale)
 );
 
 CREATE TABLE IF NOT EXISTS Prodotto (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     id_categoria INTEGER NOT NULL,
-    marca VARCHAR(20),
-    modello VARCHAR(20),
-    taglia VARCHAR(6),
-    colore VARCHAR(20),
+    marca VARCHAR(20) NOT NULL,
+    modello VARCHAR(20) NOT NULL,
+    taglia VARCHAR(6) NOT NULL,
+    colore VARCHAR(20) NOT NULL,
     prezzo INTEGER NOT NULL,
-    rating integer NOT NULL,
+    rating integer NULL,
     genere VARCHAR(20),
     UNIQUE(marca, modello, taglia, colore, genere),
     FOREIGN KEY (id_categoria) REFERENCES Categoria(id)
