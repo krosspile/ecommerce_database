@@ -1,12 +1,12 @@
 import sqlite3
-from utils import *
+from .utils import *
 
-con = sqlite3.connect('ecommerce.db')
+con = sqlite3.connect('ecommerce.db', check_same_thread=False)
 cur = con.cursor()
 
 
 def init_tables():
-    tables = open('tables.sql', 'r').read().split(';')[:-1]
+    tables = open('database/init.sql', 'r').read().split(';')[:-1]
 
     for table in tables:
         cur.execute(table + ";")
@@ -18,8 +18,16 @@ def get_results_as_dict(query, arguments, extract_function):
     results = []
     for row in cur.execute(f"{query}", arguments):
         results.append(extract_function(row))
-
+        print(row)
     return results
+
+
+def insert_template(query, data):
+    try:
+        cur.execute(query, data)
+        con.commit()
+    except:
+        print("insert error")
 
 
 def get_customer_by_email(email):
@@ -29,6 +37,13 @@ def get_customer_by_email(email):
     return get_results_as_dict(query, (email, ), extract_customer)
 
 
+def get_all_customers():
+
+    query = "SELECT * FROM Cliente"
+
+    return get_results_as_dict(query, (), extract_customer)
+
+
 def get_customer_by_id(id):
     query = "SELECT * FROM Cliente WHERE id =?"
 
@@ -36,12 +51,9 @@ def get_customer_by_id(id):
 
 
 def insert_customer(data):
-    try:
-        cur.execute(
-            "INSERT INTO Cliente (nome, cognome, email, password_hash) VALUES (?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Cliente (nome, cognome, email, password_hash) VALUES (?, ?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_categories():
@@ -51,12 +63,9 @@ def get_categories():
 
 
 def insert_category(data):
-    try:
-        cur.execute(
-            "INSERT INTO Categoria (nome) VALUES (?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Categoria (nome) VALUES (?)"
+
+    insert_template(query, data)
 
 
 def get_order(customer_id):
@@ -65,13 +74,16 @@ def get_order(customer_id):
     return get_results_as_dict(query, (customer_id, ), extract_order)
 
 
+def get_all_orders():
+    query = "SELECT * FROM Ordine"
+
+    return get_results_as_dict(query, (), extract_order)
+
+
 def insert_order(data):
-    try:
-        cur.execute(
-            "INSERT INTO Ordine (id_cliente, data, totale, indirizzo_spedizione) VALUES (?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Ordine (id_cliente, data, indirizzo_spedizione) VALUES (?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_report(order_id):
@@ -80,19 +92,22 @@ def get_report(order_id):
     return get_results_as_dict(query, (order_id, ), extract_report)
 
 
+def get_all_reports():
+    query = "SELECT * FROM Segnalazione"
+
+    return get_results_as_dict(query, (), extract_report)
+
+
 def get_report_by_customer(id_customer):
-    query = "SELECT * FROM Segnalazione WHERE id_ordine = (SELECT * FROM Ordine WHERE id_cliente = ?)"
+    query = "SELECT * FROM Segnalazione WHERE id_ordine IN (SELECT id FROM Ordine WHERE id_cliente =?)"
 
     return get_results_as_dict(query, (id_customer, ), extract_report)
 
 
 def insert_report(data):
-    try:
-        cur.execute(
-            "INSERT INTO Segnalazione (id_ordine, data_apertura, descrizione) VALUES (?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Segnalazione (id_ordine, data_apertura, descrizione) VALUES (?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_order_details(id_order):
@@ -102,12 +117,9 @@ def get_order_details(id_order):
 
 
 def insert_order_details(data):
-    try:
-        cur.execute(
-            "INSERT INTO ContenutoOrdine (id_ordine, id_prodotto, quantità) VALUES (?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO ContenutoOrdine (id_ordine, id_prodotto, quantità) VALUES (?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_all_products():
@@ -117,18 +129,15 @@ def get_all_products():
 
 
 def get_product_by_category(category_name):
-    query = "SELECT * FROM Prodotto WHERE id_categoria = (SELECT * FROM Categoria WHERE nome = ?)"
+    query = "SELECT * FROM Prodotto WHERE id_categoria = (SELECT id FROM Categoria WHERE nome = ?)"
 
     return get_results_as_dict(query, (category_name, ), extract_product)
 
 
 def insert_product(data):
-    try:
-        cur.execute(
-            "INSERT INTO Prodotto (id_categoria, marca, modello, taglia, colore, prezzo, genere) VALUES (?, ?, ?, ?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Prodotto (id_categoria, marca, modello, taglia, colore, prezzo, genere) VALUES (?, ?, ?, ?, ?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_review_by_customer(id_customer):
@@ -143,13 +152,16 @@ def get_review_by_product(id_product):
     return get_results_as_dict(query, (id_product, ), extract_review)
 
 
+def get_all_reviews():
+    query = "SELECT * FROM Recensione"
+
+    return get_results_as_dict(query, (), extract_review)
+
+
 def insert_review(data):
-    try:
-        cur.execute(
-            "INSERT INTO Recensione (id_cliente, id_prodotto, data, rating, commento) VALUES (?, ?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Recensione (id_cliente, id_prodotto, data, rating, commento) VALUES (?, ?, ?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_refund_by_customer(id_customer):
@@ -164,13 +176,10 @@ def get_refund_by_employee(id_employee):
     return get_results_as_dict(query, (id_employee, ), extract_refund)
 
 
-def insert_refund(data):
-    try:
-        cur.execute(
-            "INSERT INTO Rimborso (id_cliente, id_dipendente, importo, data_versamento) VALUES (?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+def get_all_closed_report():
+    query = "SELECT * FROM SegnalazioneGestita"
+
+    return get_results_as_dict(query, (), extract_closed_report)
 
 
 def get_closed_report_by_employee(id_employee):
@@ -186,12 +195,9 @@ def get_closed_report_by_report(id_report):
 
 
 def insert_closed_report(data):
-    try:
-        cur.execute(
-            "INSERT INTO SegnalazioneGestita (id_segnalazione, id_dipendente, descrizione, data) VALUES (?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO SegnalazioneGestita (id_segnalazione, id_dipendente, descrizione, data) VALUES (?, ?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def get_all_employee():
@@ -206,19 +212,25 @@ def get_all_sales_between_date(date_start, date_end):
     return get_results_as_dict(query, (date_start, date_end), extract_product_on_sale)
 
 
+def get_sales_by_product(id_product):
+    query = "SELECT * FROM ProdottoScontato WHERE id_prodotto=?"
+
+    return get_results_as_dict(query, (id_product,), extract_product_on_sale)
+
+
+def get_all_sales():
+    query = "SELECT * FROM ProdottoScontato"
+
+    return get_results_as_dict(query, (), extract_product_on_sale)
+
+
 def insert_employee(data):
-    try:
-        cur.execute(
-            "INSERT INTO Dipendente (data_assunzione, nome, cognome) VALUES (?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO Dipendente (data_assunzione, nome, cognome, codice_fiscale) VALUES (?, ?, ?, ?)"
+
+    insert_template(query, data)
 
 
 def insert_sales(data):
-    try:
-        cur.execute(
-            "INSERT INTO ProdottoScontato (id_prodotto, data_inizio, data_fine, prezzo_scontato) VALUES (?, ?, ?, ?)", data)
-        con.commit()
-    except:
-        print("insert error")
+    query = "INSERT INTO ProdottoScontato (id_prodotto, data_inizio, data_fine, prezzo_scontato) VALUES (?, ?, ?, ?)"
+
+    insert_template(query, data)

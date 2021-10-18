@@ -39,7 +39,8 @@ def extract_employee(data):
         'hiring_date': data[1],
         'name': data[2],
         'surname': data[3],
-        'handled_report': data[4]
+        'tax_id': data[4],
+        'handled_report': data[5]
     }
 
 
@@ -71,8 +72,7 @@ def extract_review(data):
         'id_product': data[1],
         'date': data[2],
         'rating': data[3],
-        'date': data[4],
-        'note': data[5]
+        'comment': data[4]
     }
 
 
