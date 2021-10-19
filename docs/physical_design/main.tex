@@ -9,45 +9,8 @@ La definizione delle tabelle è contenuta all'interno del file \textbf{init.sql}
 
 Le operazioni principali sono state implementate attraverso delle APIs di tipo REST, si riportano le route implementate:
 
-\subsubsection{Metodi GET}
-\textbf{/customers} : Ritorna tutti i clienti.\\
-\textbf{/customers/email?email=$<$email$>$} : Ritorna le informazioni del cliente con l'email richiesta.\\
-\textbf{/customers/$<$id$>$} : Ritorna le informazioni del cliente con uno specifico id.\\\\
-\textbf{/categories} : Ritorna informazioni su tutte le categorie\\\\
-\textbf{/employees} : Ritorna informazioni su tutti i dipendenti\\\\
-\textbf{/orders/$<$customer\_id$>$ }: Ritorna tutti gli ordini associati a uno specifico utente\\
-\textbf{/orders} : Ritorna tutti gli ordini\\\\
-\textbf{/reports} : Ritorna tutte le segnalazioni\\
-\textbf{/reports/order/$<$order\_id$>$} : Ritorna la segnalazione associata a uno specifico ordine\\
-\textbf{/reports/customer/$<$customer\_id$>$} : Ritorna tutte le segnalazioni aperte da uno specifico cliente.\\\\
-\textbf{/order/$<$id\_order$>$/details} : Ritorna la lista dei prodotti acquistati in uno specifico ordine.\\\\
-\textbf{/products} : Ritorna tutti i prodotti presenti nel database. \\
-\textbf{/products/category?name=$<$category\_name$>$} : Ritorna tutti i prodotti presenti in una specifica categoria \\\\
-\textbf{/reviews} : Ritorna tutte le recensioni di tutti i prodotti. \\
-\textbf{/reviews/customer/$<$id\_customer$>$} : Ritorna tutte le recensioni associate a un cliente\\
-\textbf{/reviews/product/$<$id\_product$>$ }: Ritorna tutte le recensioni associate a un prodotto\\\\
-\textbf{/refunds/employee/$<$employee\_id$>$ }: Ritorna tutti i rimborsi concessi da un dipendente.\\
-\textbf{/refunds/customer/$<$customer\_id$>$ }: Ritorna tutti i rimborsi ottenuti da un cliente.\\\\
-\textbf{/reports/closed} : Ritorna tutte le segnalazioni chiuse\\
-\textbf{/reports/closed/employee/$<$employee\_id$>$} : Ritorna tutte le segnalazioni chiuse da uno specifico dipendente\\
-\textbf{/reports/closed/report/$<$report\_id$>$ }: Ritorna informazioni su una specifica segnalazione.\\\\
-\textbf{/sales/search?date\_start=$<$start\_sale$>$\&date\_end=$<$end\_sale$>$} : Ritorna una lista di tutti i prodotti in promozioni in un determinato periodo.\\
-\textbf{/sales} : Ritorna tutti i prodotti che sono o che sono stati in promozione.\\
-\textbf{/sales/product/$<$product\_id$>$} : Ricerca promozioni per un determinato prodotto.\\
-
-\subsubsection{Metodi POST}
-\textbf{/customers} : Inserisce un cliente.\\
-\textbf{/categories} : Inserisce una categoria\\
-\textbf{/employees} : Inserisce un dipendente\\
-\textbf{/orders} : Inserisce un ordine\\
-\textbf{/reports} : Inserisce una sengalazione\\
-\textbf{/order/$<$order\_id$>$/details} : Inserisce un prodotto in un ordine\\
-\textbf{/products} : Inserisce un prodotto\\
-\textbf{/reviews} : Inserisce una recensione per un prodotto\\
-\textbf{/reports/closed} : Inserisce una segnalazione tra quelle chiuse\\
-\textbf{/sales} : Inserisce un prodotto scontato\\
-\subsubsection{Metodi UPDATE}
-\textbf{/pay/$<$order\_id$>$} : Segnala un ordine come pagato.\\
+\subfile{get_methods}
+\subfile{post_methods}
 
 \subsection{Definizione dei triggers}
 
@@ -55,7 +18,6 @@ La definizione dei triggers è contenuta all'interno del file \textbf{triggers.s
 
 Nello specifico i triggers si occupano di:\\
 \begin{itemize}
-    \item Aggiornare il totale di un ordine ogni volta che viene inserito un nuovo prodotto.
     \item Inserire un rimborso se il report contiene la frase 'rimborso acconsentito'.
     \item Inserire la data attuale nell'ordine.
     \item Inserire la data attuale in una segnalazione.
@@ -65,3 +27,49 @@ Nello specifico i triggers si occupano di:\\
     \item Aggiornare il contatore di segnalazioni gestite per ogni dipendente.
     \item Aggiornare il rating medio di ogni prodotto.
 \end{itemize}
+
+\section{Demo}
+
+\subsection{Inserimento cliente}
+
+\includegraphics[scale=0.35]{images/inserimento_cliente.png}
+
+\subsection{Inserimento categoria}
+
+\includegraphics[scale=0.35]{images/inserimento_categoria.png}
+
+\subsection{Inserimento prodotto}
+
+\includegraphics[scale=0.35]{images/inserimento_prodotto.png}
+
+\subsection{Inserimento dipendente}
+
+\includegraphics[scale=0.35]{images/inserimento_dipendente.png}
+
+\subsection{Inserimento ordine}
+\includegraphics[scale=0.34]{images/ordine.png}
+
+\subsection{Inserimento contenuto di un ordine}
+
+\includegraphics[scale=0.35]{images/inserimento_contenuto.png}
+
+
+\subsection{Pagamento ordine}
+
+\includegraphics[scale=0.33]{images/ordine_pagato.png}
+
+\subsection{Apertura segnalazione}
+
+\includegraphics[scale=0.33]{images/inserimento_segnalazione.png}
+
+\subsection{Chiusura segnalazione}
+
+\includegraphics[scale=0.28]{images/chiusura_segnalazione.png}
+
+\subsection{Rimborso concesso}
+
+\includegraphics[scale=0.35]{images/rimborso.png}
+
+\subsection{Inserimento di una recensione relativa a un prodotto}
+
+\includegraphics[scale=0.28]{images/recensione.png}

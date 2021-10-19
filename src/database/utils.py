@@ -20,9 +20,8 @@ def extract_order(data):
         'id': data[0],
         'id_customer': data[1],
         'date': data[2],
-        'total': data[3],
-        'address': data[4],
-        'pagato': data[5]
+        'address': data[3],
+        'pagato': data[4]
     }
 
 

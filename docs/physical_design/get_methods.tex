@@ -1,0 +1,72 @@
+\subsubsection{Metodi GET}
+\begin{center}
+\begin{tabular}{ |c|c|} 
+\hline
+Route & Descrizione \\
+\hline
+\multirow{2}{20em}{/customers} & \multirow{2}{15em}{Ritorna tutti i clienti.}\\
+ & \\
+ \hline
+\multirow{3}{20em}{/customers/email?email=$<$email$>$} & \multirow{3}{15em}{Ritorna le informazioni del cliente con l'email richiesta.}\\
+ & \\
+ & \\
+ \hline
+ \multirow{2}{20em}{/customers/$<$id$>$} & \multirow{2}{15em}{Ritorna le informazioni del cliente con uno specifico id.}\\
+ & \\
+ \hline
+\multirow{2}{20em}{/categories} & \multirow{2}{15em}{Ritorna informazioni su tutte le categorie}\\
+& \\
+\hline\multirow{2}{20em}{/employees} & \multirow{2}{15em}{Ritorna informazioni su tutti i dipendenti}\\
+& \\
+\hline\multirow{2}{20em}{/orders/$<$customer\_id$>$ } & \multirow{2}{15em}{Ritorna tutti gli ordini associati a uno specifico utente}\\
+& \\
+\hline\multirow{2}{20em}{/orders} & \multirow{2}{15em}{Ritorna tutti gli ordini}\\
+& \\
+\hline\multirow{2}{20em}{/reports} & \multirow{2}{15em}{Ritorna tutte le segnalazioni}\\
+& \\
+\hline\multirow{2}{20em}{/reports/order/$<$order\_id$>$} & \multirow{2}{15em}{Ritorna la segnalazione associata a uno specifico ordine}\\
+& \\
+\hline\multirow{2}{20em}{/reports/customer/$<$customer\_id$>$} & \multirow{2}{15em}{Ritorna tutte le segnalazioni aperte da uno specifico cliente.}\\
+& \\
+\hline\multirow{2}{20em}{/order/$<$id\_order$>$/details} & \multirow{2}{15em}{Ritorna la lista dei prodotti acquistati in uno specifico ordine.}\\
+& \\
+\hline\multirow{2}{20em}{/products} & \multirow{2}{15em}{Ritorna tutti i prodotti presenti nel database. }\\
+& \\
+\hline
+\end{tabular}
+\end{center}
+
+\newpage
+\begin{center}
+    
+
+\begin{tabular}{|c|c|}
+
+\hline\multirow{2}{20em}{/products/category?name=$<$category\_name$>$} & \multirow{2}{15em}{Ritorna tutti i prodotti presenti in una specifica categoria }\\
+& \\
+\hline\multirow{2}{20em}{/reviews} & \multirow{2}{15em}{Ritorna tutte le recensioni di tutti i prodotti. }\\
+& \\
+\hline\multirow{2}{20em}{/reviews/customer/$<$id\_customer$>$} & \multirow{2}{15em}{Ritorna tutte le recensioni associate a un cliente}\\
+& \\
+\hline\multirow{2}{20em}{/reviews/product/$<$id\_product$>$ } & \multirow{2}{15em}{Ritorna tutte le recensioni associate a un prodotto}\\
+& \\
+\hline\multirow{2}{20em}{/refunds/employee/$<$employee\_id$>$ } & \multirow{2}{15em}{Ritorna tutti i rimborsi concessi da un dipendente.}\\
+& \\
+\hline\multirow{2}{20em}{/refunds/customer/$<$customer\_id$>$ } & \multirow{2}{15em}{Ritorna tutti i rimborsi ottenuti da un cliente.}\\
+& \\
+\hline\multirow{2}{20em}{/reports/closed} & \multirow{2}{15em}{Ritorna tutte le segnalazioni chiuse}\\
+& \\
+\hline\multirow{2}{20em}{/reports/closed/employee/$<$employee\_id$>$} & \multirow{2}{15em}{Ritorna tutte le segnalazioni chiuse da uno specifico dipendente}\\
+& \\
+\hline\multirow{2}{20em}{/reports/closed/report/$<$report\_id$>$ } & \multirow{2}{15em}{Ritorna informazioni su una specifica segnalazione.}\\
+& \\
+\hline\multirow{3}{20em}{/sales/search?date\_start=$<$start\_sale$>$\&\\date\_end=$<$end\_sale$>$} & \multirow{3}{15em}{Ritorna una lista di tutti i prodotti in promozioni in un determinato periodo.}\\
+& \\
+& \\
+\hline\multirow{2}{20em}{/sales} & \multirow{2}{15em}{Ritorna tutti i prodotti che sono o che sono stati in promozione.}\\
+& \\
+\hline\multirow{2}{20em}{/sales/product/$<$product\_id$>$} & \multirow{2}{15em}{Ricerca promozioni per un determinato prodotto.}\\
+& \\
+\hline
+\end{tabular}
+\end{center}
