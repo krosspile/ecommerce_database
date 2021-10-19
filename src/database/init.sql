@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS Cliente (
 CREATE TABLE IF NOT EXISTS Categoria (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     nome VARCHAR(20) NOT NULL,
-    articoli_totali INTEGER NULL,
+    articoli_totali INTEGER DEFAULT 0,
     UNIQUE(nome)
 );
 
@@ -18,7 +18,6 @@ CREATE TABLE IF NOT EXISTS Ordine (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     id_cliente INTEGER NOT NULL,
     data DATE NULL,
-    totale INTEGER NULL,
     indirizzo_spedizione VARCHAR(30) NOT NULL,
     pagato INTEGER DEFAULT 0,
     FOREIGN KEY(id_cliente) REFERENCES Cliente(id)
@@ -38,7 +37,7 @@ CREATE TABLE IF NOT EXISTS Dipendente (
     nome VARCHAR(20) NOT NULL,
     cognome VARCHAR(20) NOT NULL,
     codice_fiscale VARCHAR(16) NOT NULL,
-    segnalazioni_gestite INTEGER NULL,
+    segnalazioni_gestite DEFAULT 0,
     UNIQUE(codice_fiscale)
 );
 

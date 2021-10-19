@@ -1,26 +1,3 @@
-CREATE TRIGGER IF NOT EXISTS update_total
-AFTER
-INSERT
-    ON ContenutoOrdine BEGIN
-UPDATE
-    Ordine
-SET
-    totale = (
-        SELECT
-            SUM(prezzo * quantità)
-        FROM
-            ContenutoOrdine CO,
-            Prodotto P
-        WHERE
-            CO.id_prodotto = P.id
-            AND CO.id_ordine = new.id_ordine
-    )
-WHERE
-    Ordine.id = new.id_ordine;
-
-END;
-
---
 CREATE TRIGGER IF NOT EXISTS insert_refund
 AFTER
 INSERT
@@ -46,11 +23,11 @@ VALUES
         new.id_dipendente,
         (
             SELECT
-                totale
+                SUM(prezzo)
             FROM
-                Ordine O
+                ContenutoOrdine CO, Prodotto P
             WHERE
-                O.id = new.id_segnalazione
+                CO.id_ordine = new.id_segnalazione AND P.id = CO.id_prodotto
         ),
         DATETIME('now')
     );
