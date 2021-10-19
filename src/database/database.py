@@ -7,9 +7,13 @@ cur = con.cursor()
 
 def init_tables():
     tables = open('database/init.sql', 'r').read().split(';')[:-1]
+    triggers = open('database/triggers.sql', 'r').read().split('--')[:-1]
 
     for table in tables:
         cur.execute(table + ";")
+
+    for trigger in triggers:
+        cur.execute(trigger)
 
     con.commit()
 
@@ -18,16 +22,15 @@ def get_results_as_dict(query, arguments, extract_function):
     results = []
     for row in cur.execute(f"{query}", arguments):
         results.append(extract_function(row))
-        print(row)
     return results
 
 
-def insert_template(query, data):
+def execute_template(query, data):
     try:
         cur.execute(query, data)
         con.commit()
-    except:
-        print("insert error")
+    except Exception as e:
+        print("insert error", e)
 
 
 def get_customer_by_email(email):
@@ -53,7 +56,7 @@ def get_customer_by_id(id):
 def insert_customer(data):
     query = "INSERT INTO Cliente (nome, cognome, email, password_hash) VALUES (?, ?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_categories():
@@ -65,7 +68,7 @@ def get_categories():
 def insert_category(data):
     query = "INSERT INTO Categoria (nome) VALUES (?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_order(customer_id):
@@ -81,9 +84,9 @@ def get_all_orders():
 
 
 def insert_order(data):
-    query = "INSERT INTO Ordine (id_cliente, data, indirizzo_spedizione) VALUES (?, ?, ?)"
+    query = "INSERT INTO Ordine (id_cliente, indirizzo_spedizione) VALUES (?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_report(order_id):
@@ -105,9 +108,9 @@ def get_report_by_customer(id_customer):
 
 
 def insert_report(data):
-    query = "INSERT INTO Segnalazione (id_ordine, data_apertura, descrizione) VALUES (?, ?, ?)"
+    query = "INSERT INTO Segnalazione (id_ordine, descrizione) VALUES (?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_order_details(id_order):
@@ -119,7 +122,7 @@ def get_order_details(id_order):
 def insert_order_details(data):
     query = "INSERT INTO ContenutoOrdine (id_ordine, id_prodotto, quantità) VALUES (?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_all_products():
@@ -137,7 +140,7 @@ def get_product_by_category(category_name):
 def insert_product(data):
     query = "INSERT INTO Prodotto (id_categoria, marca, modello, taglia, colore, prezzo, genere) VALUES (?, ?, ?, ?, ?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_review_by_customer(id_customer):
@@ -159,9 +162,9 @@ def get_all_reviews():
 
 
 def insert_review(data):
-    query = "INSERT INTO Recensione (id_cliente, id_prodotto, data, rating, commento) VALUES (?, ?, ?, ?, ?)"
+    query = "INSERT INTO Recensione (id_cliente, id_prodotto, rating, commento) VALUES (?, ?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def get_refund_by_customer(id_customer):
@@ -195,9 +198,15 @@ def get_closed_report_by_report(id_report):
 
 
 def insert_closed_report(data):
-    query = "INSERT INTO SegnalazioneGestita (id_segnalazione, id_dipendente, descrizione, data) VALUES (?, ?, ?, ?)"
+    query = "INSERT INTO SegnalazioneGestita (id_segnalazione, id_dipendente, descrizione) VALUES (?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
+
+
+def pay_order(order_id):
+    query = "UPDATE Ordine SET pagato=1 WHERE id=?"
+
+    execute_template(query, order_id)
 
 
 def get_all_employee():
@@ -227,10 +236,10 @@ def get_all_sales():
 def insert_employee(data):
     query = "INSERT INTO Dipendente (data_assunzione, nome, cognome, codice_fiscale) VALUES (?, ?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)
 
 
 def insert_sales(data):
     query = "INSERT INTO ProdottoScontato (id_prodotto, data_inizio, data_fine, prezzo_scontato) VALUES (?, ?, ?, ?)"
 
-    insert_template(query, data)
+    execute_template(query, data)

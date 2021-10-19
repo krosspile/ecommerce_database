@@ -80,10 +80,9 @@ def orders():
     if request.method == 'POST':
         try:
             id_customer = request.form['id_customer']
-            date = request.form['date']
             address = request.form['address']
 
-            database.insert_order((id_customer, date, address))
+            database.insert_order((id_customer, address))
             return Response(status=200)
         except:
             return Response(status=500)
@@ -92,15 +91,23 @@ def orders():
         return jsonify(database.get_all_orders())
 
 
+@app.route("/pay/<order_id>", methods=['UPDATE'])
+def pay(order_id):
+    try:
+        database.pay_order(order_id)
+        return Response(status=200)
+    except:
+        return Response(status=500)
+
+
 @app.route("/reports", methods=['GET', 'POST'])
 def reports():
     if request.method == 'POST':
         try:
             id_order = request.form['id_order']
-            date = request.form['date']
             description = request.form['description']
 
-            database.insert_report((id_order, date, description))
+            database.insert_report((id_order, description))
             return Response(status=200)
         except:
             return Response(status=500)
@@ -183,12 +190,11 @@ def reviews():
         try:
             id_customer = request.form['id_customer']
             id_product = request.form['id_product']
-            date = request.form['date']
             rating = request.form['rating']
             comment = request.form['comment']
 
             database.insert_review(
-                (id_customer, id_product, date, rating, comment))
+                (id_customer, id_product, rating, comment))
             return Response(status=200)
         except:
             return Response(status=500)
@@ -207,17 +213,16 @@ def refunds_by_customer(id):
     return jsonify(database.get_refund_by_customer(id))
 
 
-@app.route("/closed", methods=['GET', 'POST'])
+@app.route("/reports/closed", methods=['GET', 'POST'])
 def closed_report():
     if request.method == 'POST':
         try:
             id_report = request.form['id_report']
             id_employee = request.form['id_employee']
             description = request.form['description']
-            date = request.form['date']
 
             database.insert_closed_report(
-                (id_report, id_employee, description, date))
+                (id_report, id_employee, description))
             return Response(status=200)
         except:
             return Response(status=500)
@@ -226,12 +231,12 @@ def closed_report():
         return jsonify(database.get_all_closed_report())
 
 
-@app.route("/closed/employee/<id>", methods=['GET'])
+@app.route("/reports/closed/employee/<id>", methods=['GET'])
 def closed_report_by_employee(id):
     return jsonify(database.get_closed_report_by_employee(id))
 
 
-@app.route("/closed/report/<id>", methods=['GET'])
+@app.route("/reports/closed/report/<id>", methods=['GET'])
 def closed_report_by_report(id):
     return jsonify(database.get_closed_report_by_report(id))
 

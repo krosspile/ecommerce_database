@@ -21,13 +21,14 @@ def extract_order(data):
         'id_customer': data[1],
         'date': data[2],
         'total': data[3],
-        'address': data[4]
+        'address': data[4],
+        'pagato': data[5]
     }
 
 
 def extract_report(data):
     return {
-        'id_order': data[0],
+        'id_report': data[0],
         'date': data[1],
         'description': data[2]
     }
