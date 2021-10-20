@@ -1,14 +1,12 @@
 \section{Progettazione Fisica}
 
-Per la realizzazione è stato utilizzato un DBMS di tipo SQL, controllato attraverso la libreria software SQlite3 in Python. Si è scelto di concludere questo progetto implementando un piccolo set di API di tipo REST che si interfacciano con la basi di dati e che permettono di svolgere le operazioni principali discusse durante la progettazione. 
+Per la realizzazione è stato utilizzato un DBMS di tipo SQL, controllato attraverso la libreria software \textbf{SQlite3} in Python. \textbf{Si è scelto di concludere questo progetto implementando un piccolo set di API di tipo REST} che si interfacciano con la basi di dati e che permettono di svolgere le operazioni principali discusse durante la progettazione. 
 
 \subsection{Definizione delle tabelle}
 La definizione delle tabelle è contenuta all'interno del file \textbf{init.sql}: \href{https://github.com/krosspile/ecommerce_database/blob/master/src/database/init.sql}{link}.
 
 \subsection{Definizione delle operazioni}
-
-Le operazioni principali sono state implementate attraverso delle APIs di tipo REST, si riportano le route implementate:
-
+Le APIs sono implementate all'interno del file \textbf{api.py} con l'utilizzo della libreria \textbf{Flask}: \href{https://github.com/krosspile/ecommerce_database/blob/master/src/api.py}{link}, si riportano di seguito le route e le relative descrizioni. 
 \subfile{get_methods}
 \subfile{post_methods}
 
@@ -27,6 +25,7 @@ Nello specifico i triggers si occupano di:\\
     \item Aggiornare il contatore di segnalazioni gestite per ogni dipendente.
     \item Aggiornare il rating medio di ogni prodotto.
     \item Vietare l'inserimento di una recensione se il prodotto non è stato acquistato
+    \item Vietare l'inserimento di uno sconto se il prodotto non esiste
 \end{itemize}
 
 \section{Demo}
@@ -54,6 +53,9 @@ Nello specifico i triggers si occupano di:\\
 
 \includegraphics[scale=0.33]{images/inserimento_contenuto.png}
 
+\subsection{Inserimento di uno sconto}
+
+\includegraphics[scale=0.33]{images/inserimento_sconto.png}
 
 \subsection{Pagamento ordine}
 
