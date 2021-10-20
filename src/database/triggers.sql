@@ -25,9 +25,11 @@ VALUES
             SELECT
                 SUM(prezzo)
             FROM
-                ContenutoOrdine CO, Prodotto P
+                ContenutoOrdine CO,
+                Prodotto P
             WHERE
-                CO.id_ordine = new.id_segnalazione AND P.id = CO.id_prodotto
+                CO.id_ordine = new.id_segnalazione
+                AND P.id = CO.id_prodotto
         ),
         DATETIME('now')
     );
@@ -152,6 +154,26 @@ SET
     )
 WHERE
     Prodotto.id = new.id_prodotto;
+
+END;
+
+--
+CREATE TRIGGER IF NOT EXISTS reviews_if_purchased
+AFTER
+INSERT
+    ON Recensione
+    WHEN new.id_prodotto NOT IN (
+        SELECT
+            CO.id_prodotto
+        FROM
+            ContenutoOrdine CO,
+            Ordine O
+        WHERE
+            O.id_cliente = new.id_cliente
+            AND CO.id_ordine = O.id
+    ) BEGIN
+select
+    raise(ROLLBACK, 'Object not purchased');
 
 END;
 

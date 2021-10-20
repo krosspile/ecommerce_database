@@ -27,8 +27,13 @@ def insert_customer():
             name = request.form['name']
             surname = request.form['surname']
             email = request.form['email']
+            password = request.form['password']
+
+            if len(password) < 8:
+                return Response(status=500)
+
             password_hash = hashlib.sha256(
-                request.form['password'].encode('utf-8')).hexdigest()
+                password.encode('utf-8')).hexdigest()
             database.insert_customer((name, surname, email, password_hash))
             return Response(status=200)
         except:
@@ -134,6 +139,9 @@ def order_details(id):
             id_product = request.form['id_product']
             quantity = request.form['quantity']
 
+            if int(quantity) <= 0:
+                return Response(status=500)
+
             database.insert_order_details((id_order, id_product, quantity))
             return Response(status=200)
         except:
@@ -154,6 +162,9 @@ def products():
             color = request.form['color']
             price = request.form['price']
             gender = request.form['gender']
+
+            if int(price) <= 0:
+                return Response(status=500)
 
             database.insert_product(
                 (id_category, brand, model, size, color, price, gender))
@@ -190,7 +201,7 @@ def reviews():
         try:
             id_customer = request.form['id_customer']
             id_product = request.form['id_product']
-            rating = request.form['rating']
+            rating = min(max(int(request.form['rating']), 1), 5)
             comment = request.form['comment']
 
             database.insert_review(
