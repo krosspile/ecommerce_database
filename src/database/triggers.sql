@@ -178,3 +178,39 @@ select
 END;
 
 --
+CREATE TRIGGER IF NOT EXISTS order_exists
+AFTER
+INSERT
+    ON Segnalazione
+    WHEN NOT EXISTS (
+        SELECT
+            *
+        FROM
+            Ordine O
+        WHERE
+            O.id = new.id_ordine
+    ) BEGIN
+select
+    raise(ROLLBACK, 'Order not exists');
+
+END;
+
+--
+CREATE TRIGGER IF NOT EXISTS product_exists
+AFTER
+INSERT
+    ON ProdottoScontato
+    WHEN NOT EXISTS (
+        SELECT
+            *
+        FROM
+            Prodotto P
+        WHERE
+            P.id = new.id_prodotto
+    ) BEGIN
+select
+    raise(ROLLBACK, 'Product not exists');
+
+END;
+
+--
