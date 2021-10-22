@@ -14,7 +14,7 @@ Per la realizzazione del modello entità-relazione si è deciso di seguire una s
 
 \subsubsection{Prodotto}
 \includegraphics[scale=0.65]{images/prodotto.png}
-\textbf{Le chiavi candidate nell'entità prodotto sono ID e la tupla di attributi (Modello, Marca, Taglia, Colore, Genere)}, si è scelto di utilizzare la prima come chiave primaria e rendere univoco l'insieme formato dall'altra.
+\textbf{Le chiavi candidate nell'entità prodotto sono ID e la ennupla di attributi (Modello, Marca, Taglia, Colore, Genere)}, si è scelto di utilizzare la prima come chiave primaria e rendere univoco l'insieme formato dall'altra.
 \subsubsection{Dipendente}
 \begin{center}
 \includegraphics[scale=0.60]{images/segnalazione.png}
@@ -22,4 +22,4 @@ Per la realizzazione del modello entità-relazione si è deciso di seguire una s
 Vengono individuate le due chiavi candidate ID e Codice Fiscale nell'entità Dipendente. \textbf{Viene scelto di utilizzare l'attributo ID e rendere univoco l'attributo Codice Fiscale}. La relazione \textit{Gestisce} contiene gli attributi \textit{Data} e \textit{Report} che indicano rispettivamente la data di chiusura della segnalazione e il modo in cui è stata risolta.
 \subsubsection{Schema finale}
 \includegraphics[scale=0.55]{images/schema_finale.png}
-\textbf{Lo schema finale è ottenuto unendo gli schemi Cliente, Prodotto e Dipendente}. Si noti che sono state aggiunte le seguenti relazioni: \textit{Recensisce}, \textit{Rimborsa}, \textit{Contiene} e \textit{Riporta}, che fungono da collante tra concetti diversi. \textbf{Dato che la relazione tra Ordine e Segnalazione è 1 a 1 è stato rimosso l'attributo ID da Segnalazione e utilizzato l'ID\_ordine fornito dalla chiave esterna come chiave primaria}. La relazione Rimborsa, essendo una relazione molti a molti, viene identificata da un attributo ID.
+\textbf{Lo schema finale è ottenuto unendo gli schemi Cliente, Prodotto e Dipendente}. Si noti che sono state aggiunte le seguenti relazioni: \textit{Recensisce}, \textit{Rimborsa}, \textit{Contiene} e \textit{Riporta}; queste fungono da collante tra concetti diversi. Essendo la relazione tra Ordine e Segnalazione è 1 a 1 \textbf{è stato rimosso l'attributo ID da Segnalazione e utilizzato l'ID\_ordine fornito dalla chiave esterna come chiave primaria}. \textbf{La relazione Rimborsa}, essendo una relazione molti a molti,\textbf{ viene identificata da un attributo ID}.
