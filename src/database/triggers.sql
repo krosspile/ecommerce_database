@@ -1,42 +1,3 @@
-CREATE TRIGGER IF NOT EXISTS insert_refund
-AFTER
-INSERT
-    ON SegnalazioneGestita
-    WHEN new.descrizione like '%rimborso acconsentito%' BEGIN
-INSERT INTO
-    Rimborso(
-        id_cliente,
-        id_dipendente,
-        importo,
-        data_versamento
-    )
-VALUES
-    (
-        (
-            SELECT
-                id_cliente
-            FROM
-                Ordine O
-            WHERE
-                O.id = new.id_segnalazione
-        ),
-        new.id_dipendente,
-        (
-            SELECT
-                SUM(prezzo)
-            FROM
-                ContenutoOrdine CO,
-                Prodotto P
-            WHERE
-                CO.id_ordine = new.id_segnalazione
-                AND P.id = CO.id_prodotto
-        ),
-        DATETIME('now')
-    );
-
-END;
-
---
 CREATE TRIGGER IF NOT EXISTS insert_data_order
 AFTER
 INSERT
@@ -208,9 +169,22 @@ INSERT
         WHERE
             P.id = new.id_prodotto
     ) BEGIN
-select
+SELECT
     raise(ROLLBACK, 'Product not exists');
 
+END;
+
+--
+CREATE TRIGGER IF NOT EXISTS insert_date_rimborso
+AFTER
+INSERT
+    ON Rimborso BEGIN
+UPDATE
+    Rimborso
+SET
+    data_versamento = DATETIME('now')
+WHERE
+    Rimborso.id = new.id;
 END;
 
 --

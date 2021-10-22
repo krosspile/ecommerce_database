@@ -1,0 +1,1401 @@
+{
+    "_type": "export",
+    "__export_format": 4,
+    "__export_date": "2021-10-22T00:14:33.671Z",
+    "__export_source": "insomnia.desktop.app:v2021.5.3",
+    "resources": [
+        {
+            "_id": "req_eb1e8b62e0b04c6b893006fcae1754a8",
+            "parentId": "fld_61cdefeb8d3d466e832ce300448b532c",
+            "modified": 1634843078252,
+            "created": 1634843065692,
+            "url": "http://127.0.0.1:5000/reviews/product/3",
+            "name": "get by product",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634843065692,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_61cdefeb8d3d466e832ce300448b532c",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634839985477,
+            "created": 1634839985477,
+            "name": "reviews",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634839985477,
+            "_type": "request_group"
+        },
+        {
+            "_id": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "parentId": null,
+            "modified": 1634834164659,
+            "created": 1634834164659,
+            "name": "eCommerce Database",
+            "description": "",
+            "scope": "collection",
+            "_type": "workspace"
+        },
+        {
+            "_id": "req_a7dd87e2fa4743e1976981416bcb1097",
+            "parentId": "fld_61cdefeb8d3d466e832ce300448b532c",
+            "modified": 1634843032618,
+            "created": 1634843023486,
+            "url": "http://127.0.0.1:5000/reviews/customer/2",
+            "name": "get by customer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634843023486,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_a114b21b863944fa90d372020a522bdb",
+            "parentId": "fld_61cdefeb8d3d466e832ce300448b532c",
+            "modified": 1634860899824,
+            "created": 1634841704240,
+            "url": "http://127.0.0.1:5000/reviews",
+            "name": "insert",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_f0cd7368e7fb4b85b089233e9178e9ae",
+                        "name": "id_customer",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_63bfc9298b604fa992179c8076980bc6",
+                        "name": "id_product",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_30a86ebc50444e32b3fc926e5d9d70c9",
+                        "name": "rating",
+                        "value": "4",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_578f0fe2608049ee9feddfe4b28e5478",
+                        "name": "comment",
+                        "value": "Scarpe comode e buoni i materiali",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_04b7aa8d6c7a41289e73b744ec1e168b"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634841704240,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_fa1f165300904ebd92a099b282311800",
+            "parentId": "fld_61cdefeb8d3d466e832ce300448b532c",
+            "modified": 1634841698303,
+            "created": 1634841688696,
+            "url": "http://127.0.0.1:5000/reviews",
+            "name": "get all",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634841688696,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d7c02ee48e874d5b8a3d176af966b607",
+            "parentId": "fld_747557b2e8e64c2dab869b27f8728a39",
+            "modified": 1634844808026,
+            "created": 1634844691226,
+            "url": "http://127.0.0.1:5000/sales/search",
+            "name": "search",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_1c66afb9543048eb959915ff24450880",
+                    "name": "date_start",
+                    "value": "2021-10-07",
+                    "description": ""
+                },
+                {
+                    "id": "pair_ce01fca8e12d4742bda7ffa93e47b52c",
+                    "name": "date_end",
+                    "value": "2021-11-13",
+                    "description": ""
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634844691226,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_747557b2e8e64c2dab869b27f8728a39",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634839960065,
+            "created": 1634839960065,
+            "name": "sales",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634839960065,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_e9c6a1b30a514dc397a4361187c818ae",
+            "parentId": "fld_747557b2e8e64c2dab869b27f8728a39",
+            "modified": 1634860734139,
+            "created": 1634844627773,
+            "url": "http://127.0.0.1:5000/sales",
+            "name": "insert",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_70b31b7a7a41484b9201d6d4273b5d19",
+                        "name": "id_product",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_446d4fcbd96247e991e5a29e6bb24a0b",
+                        "name": "start_date",
+                        "value": "2021-10-11",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_a7fabfc6cc7e40c0bab3b630a0f0dc2c",
+                        "name": "end_date",
+                        "value": "2021-11-11",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_fcf56b42ec754fbabd735280dbe9fde3",
+                        "name": "new_price",
+                        "value": "100",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_becb8c6e180248d98301a5ad2bc3f5ce"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634844627773,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f890232f121a43bbaa22b7e688563c63",
+            "parentId": "fld_747557b2e8e64c2dab869b27f8728a39",
+            "modified": 1634844621565,
+            "created": 1634844611780,
+            "url": "http://127.0.0.1:5000/sales",
+            "name": "get all",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634844611780,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_bd923c4dbf8f4abca9562b8ca7a4acf7",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634844585338,
+            "created": 1634844561092,
+            "url": "http://127.0.0.1:5000/reports/closed/report/1",
+            "name": "get closed by customer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634844561092,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634839929512,
+            "created": 1634839929512,
+            "name": "reports",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634839929513,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_851b46de3dd44405a430873c25638b5c",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634844543688,
+            "created": 1634844531399,
+            "url": "http://127.0.0.1:5000/reports/closed/employee/1",
+            "name": "get closed by employeer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634844531399,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f6be8d08967648f0a338e16c256b719d",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634843403408,
+            "created": 1634843320320,
+            "url": "http://127.0.0.1:5000/reports/closed",
+            "name": "insert closed report",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_19760d0fb0ed40c887bca26907d13266",
+                        "name": "id_report",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_07242cd763194806bde4251d760ab390",
+                        "name": "id_employee",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_6c1074424ab147a2a9f29f2cee0c7fc2",
+                        "name": "description",
+                        "value": "Il fornitore ci ha truffati. Rimborso acconsentito",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_a21a4f9418af429e9fee626b31b8adae"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634843320320,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_6b5273dd38b344f589f4979ae4bf683b",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634843419943,
+            "created": 1634843278626,
+            "url": "http://127.0.0.1:5000/reports/closed",
+            "name": "get all closed report",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634843278627,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_151be46bdbf8494c94c5a05ec015cc39",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634840166031,
+            "created": 1634840143189,
+            "url": "http://127.0.0.1:5000/reports/customer/2",
+            "name": "get by customer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634840143189,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_be8de93b1c8741de9dc962dc86aa93aa",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634840132465,
+            "created": 1634840112018,
+            "url": "http://127.0.0.1:5000/reports/order/1",
+            "name": "get by order id",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634840112018,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_785911cb919d4f56967c44d84361f363",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634840089331,
+            "created": 1634840025378,
+            "url": "http://127.0.0.1:5000/reports",
+            "name": "insert",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_1fea9fa572ad4b6b87400d9f6cba83e2",
+                        "name": "id_order",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_5878f74a66f042d89df8dca9acd99195",
+                        "name": "description",
+                        "value": "Il pacco non è mai arrivato",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_462a1a03121d41caa9f480fcd73fc233"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634840025378,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0eb7698ff81540678d79fc1b0bd73eb4",
+            "parentId": "fld_63327c9dbe7c4f0c8c79f35cc1928525",
+            "modified": 1634840019290,
+            "created": 1634840006436,
+            "url": "http://127.0.0.1:5000/reports",
+            "name": "get all",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634840006497,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0c55bf674aba4d319490a99d5284c268",
+            "parentId": "fld_5496c7b3b2fe44088a72fca60e42de44",
+            "modified": 1634845013695,
+            "created": 1634845007569,
+            "url": "http://127.0.0.1:5000/refunds/customer/1",
+            "name": "refunds by customer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634845007569,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_5496c7b3b2fe44088a72fca60e42de44",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634838694461,
+            "created": 1634838694461,
+            "name": "refunds",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634838694461,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_0aadde6d7bcf473bbbb52582a4a202fa",
+            "parentId": "fld_5496c7b3b2fe44088a72fca60e42de44",
+            "modified": 1634844998157,
+            "created": 1634844992896,
+            "url": "http://127.0.0.1:5000/refunds/employee/1",
+            "name": "refunds by employee",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634844992896,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_67881560e52848e79b76191c8fa970a7",
+            "parentId": "fld_5496c7b3b2fe44088a72fca60e42de44",
+            "modified": 1634845025178,
+            "created": 1634844838222,
+            "url": "http://127.0.0.1:5000/refunds",
+            "name": "insert",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_8318e92758ea46aa912bc7e3f717fbcb",
+                        "name": "id_customer",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_5d51a3054efa4c61b82b9c0633ed79e2",
+                        "name": "id_employer",
+                        "value": "2",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_31ac43f3f3ac478985c7114eaa605680",
+                        "name": "money",
+                        "value": "150",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_9afb8fe9e23f4329a5a72be57256ec29"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634844838222,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_faf6c40bb22048699fcff15ddc1f0ff2",
+            "parentId": "fld_5496c7b3b2fe44088a72fca60e42de44",
+            "modified": 1634844834279,
+            "created": 1634844822046,
+            "url": "http://127.0.0.1:5000/refunds",
+            "name": "get all",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634844822046,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_306e80c4a8524a80b023f185b9bf7893",
+            "parentId": "fld_5fc74195959b4a939b4b60773c99f47c",
+            "modified": 1634840418216,
+            "created": 1634840250425,
+            "url": "http://127.0.0.1:5000/products/category",
+            "name": "get by category",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_2fd0c691a05547e79fdd2da10a92ce1c",
+                    "name": "category",
+                    "value": "Scarpe",
+                    "description": "",
+                    "disabled": false
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634840250425,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_5fc74195959b4a939b4b60773c99f47c",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634837021059,
+            "created": 1634837021059,
+            "name": "products",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634837021059,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_af2fc63acb204fff88199becaebfaeff",
+            "parentId": "fld_5fc74195959b4a939b4b60773c99f47c",
+            "modified": 1634841539043,
+            "created": 1634837059128,
+            "url": "http://127.0.0.1:5000/products",
+            "name": "insert product",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_d7e83ec35f414029806cae0a7b951c9e",
+                        "name": "id_category",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_37242a4c9f704acdbee5d3b5e1e38f0d",
+                        "name": "brand",
+                        "value": "Nike",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_e03c0c30e6da46f598ed15d79680eb78",
+                        "name": "model",
+                        "value": "AirMax",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_ec2e98dcae6a442c97a37ce92e0bb6a2",
+                        "name": "size",
+                        "value": "43",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_68aa58fc93dc4bd29321b640a0eed9b6",
+                        "name": "color",
+                        "value": "White",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_48b185f71b764de9abeed335c75f3e3c",
+                        "name": "price",
+                        "value": "200",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_02c4c50de8924fca82993985b028e515",
+                        "name": "gender",
+                        "value": "M",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_b11c9fbd71534d1da37768fa171a22ee"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634837029562,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_f2d1b1c6f2e54a99aba3699ca8482216",
+            "parentId": "fld_5fc74195959b4a939b4b60773c99f47c",
+            "modified": 1634841525232,
+            "created": 1634837335792,
+            "url": "http://127.0.0.1:5000/products/2",
+            "name": "delete a product",
+            "description": "",
+            "method": "DELETE",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": []
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_b645472ae831456da99de8c976d3acf5"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634837029537,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_0f86607af2394b708742230eea306710",
+            "parentId": "fld_5fc74195959b4a939b4b60773c99f47c",
+            "modified": 1634837050011,
+            "created": 1634837029512,
+            "url": "http://127.0.0.1:5000/products",
+            "name": "get products",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634837029512,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_569738bc645e42afb8992fd921513555",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634842003614,
+            "created": 1634841989095,
+            "url": "http://127.0.0.1:5000/order/1/details/1",
+            "name": "delete product",
+            "description": "",
+            "method": "DELETE",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634841989095,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_595bcbb79ae44977999f090da77bb622",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634836679234,
+            "created": 1634836679234,
+            "name": "orders",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634836679234,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_9d6d9b6b916d49c9a1d631cc6bbdd099",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634859912587,
+            "created": 1634836917878,
+            "url": "http://127.0.0.1:5000/order/1/details",
+            "name": "insert details",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_4887d9585b9849149d4d24160a394f8e",
+                        "name": "id_product",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_3b88db4ec00841b991d9c6cae000dc55",
+                        "name": "quantity",
+                        "value": "1",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_0933531a7f0d460795509ab397e227c9"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634836917878,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_02e0e1e657514dbc8cf1af8686574bf0",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634836846848,
+            "created": 1634836832851,
+            "url": "http://127.0.0.1:5000/pay/1",
+            "name": "pay order",
+            "description": "",
+            "method": "UPDATE",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836832851,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_5fc97d3b70814f3e91cadd7e09c5a619",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634859491087,
+            "created": 1634836714989,
+            "url": "http://127.0.0.1:5000/orders",
+            "name": "insert order",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_c66278bee0614094abef1254cb81da71",
+                        "name": "id_customer",
+                        "value": "1",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_884c2cfd58004f9e9a2ec30f612fb993",
+                        "name": "address",
+                        "value": "Corso Savoia, 23",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_9ce8d9b2d76e4933969ea0f422c3b39a",
+                        "name": "",
+                        "value": "",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_43a5c193a9304a24b21f504b00419bcc"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634836714989,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d6e8bd95f71144bbb545c53a87d44592",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634836905737,
+            "created": 1634836879887,
+            "url": "http://127.0.0.1:5000/order/1/details",
+            "name": "get details",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836707753.25,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_b71a9822b278473d8c82478df4e44831",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634836790117,
+            "created": 1634836765410,
+            "url": "http://127.0.0.1:5000/orders/1",
+            "name": "get order by customer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836700517.5,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_e40061b43347487f9cd44bfed11eaa53",
+            "parentId": "fld_595bcbb79ae44977999f090da77bb622",
+            "modified": 1634836705251,
+            "created": 1634836686046,
+            "url": "http://127.0.0.1:5000/orders",
+            "name": "get orders",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836686046,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_4c70712234724549898c3c1d20ff4676",
+            "parentId": "fld_a2f0a499311045b6a138bb76d638caca",
+            "modified": 1634859365324,
+            "created": 1634836565495,
+            "url": "http://127.0.0.1:5000/employees",
+            "name": "insert employeer",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_3ed882042208467ab3c7d6e1b8e14c2f",
+                        "name": "name",
+                        "value": "Michele",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_fbe72ac5bca44937907bf6568162db3d",
+                        "name": "surname",
+                        "value": "Giordano",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_f18f88c1159348a5acb8392446a775f6",
+                        "name": "hiring_date",
+                        "value": "2021-10-10",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_445ed7ec3083493f8888fb858e8c2fdc",
+                        "name": "tax_id",
+                        "value": "MCHGDN64B28I314H",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_06f2f15edc7949c9a10a6e1d9c4370e0"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634836565495,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_a2f0a499311045b6a138bb76d638caca",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634836538865,
+            "created": 1634836538865,
+            "name": "employees",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634836538865,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_a89ba4e6c3414fbd8714f3f1902db808",
+            "parentId": "fld_a2f0a499311045b6a138bb76d638caca",
+            "modified": 1634836556802,
+            "created": 1634836546668,
+            "url": "http://127.0.0.1:5000/employees",
+            "name": "get empolyeer",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836546668,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_a8c146bb8e924c19bba3011a3796b896",
+            "parentId": "fld_27da15898e34442bba13d43154f73968",
+            "modified": 1634836444242,
+            "created": 1634836439049,
+            "url": "http://127.0.0.1:5000/categories",
+            "name": "get categories",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836439049,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_27da15898e34442bba13d43154f73968",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634836366518,
+            "created": 1634836366518,
+            "name": "categories",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634836366518,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_91c6c310b8854434964f806ca3f3c96d",
+            "parentId": "fld_27da15898e34442bba13d43154f73968",
+            "modified": 1634838964707,
+            "created": 1634836164274,
+            "url": "http://127.0.0.1:5000/categories",
+            "name": "insert categories",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_6b83cc9f292740378b2f79d803b572c5",
+                        "name": "name",
+                        "value": "Giacche",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_d338f2a5ca604816af943f2bb8cbe0c9"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634836164274,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_dea3f99b313249858f749e7ed09deddd",
+            "parentId": "fld_dd649e21c1864e88873720923303d8d8",
+            "modified": 1634836514378,
+            "created": 1634836488478,
+            "url": "http://127.0.0.1:5000/customers/email",
+            "name": "get customer by email",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [
+                {
+                    "id": "pair_20b071b015964cbb83335f6b2d2f6f2f",
+                    "name": "email",
+                    "value": "maujeri99@gmail.com",
+                    "description": ""
+                }
+            ],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634836488478,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "fld_dd649e21c1864e88873720923303d8d8",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634836336256,
+            "created": 1634836336256,
+            "name": "customers",
+            "description": "",
+            "environment": {},
+            "environmentPropertyOrder": null,
+            "metaSortKey": -1634836336256,
+            "_type": "request_group"
+        },
+        {
+            "_id": "req_750812047a5a4dac882f0cc8c6c1700a",
+            "parentId": "fld_dd649e21c1864e88873720923303d8d8",
+            "modified": 1634845644640,
+            "created": 1634836328411,
+            "url": "http://127.0.0.1:5000/customers",
+            "name": "get customers",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634834204578,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_d0e9706585ed44a1a45c6858e17582d5",
+            "parentId": "fld_dd649e21c1864e88873720923303d8d8",
+            "modified": 1634845566651,
+            "created": 1634834204528,
+            "url": "http://127.0.0.1:5000/customers",
+            "name": "insert customers",
+            "description": "",
+            "method": "POST",
+            "body": {
+                "mimeType": "multipart/form-data",
+                "params": [
+                    {
+                        "id": "pair_61b1d3261b224d1cab773254eec848d2",
+                        "name": "name",
+                        "value": "Franco",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_f9a5b59724604b969e61d9e05a3c4d40",
+                        "name": "surname",
+                        "value": "Esposito",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_71a3f40a84f4415fb04ca6d510347775",
+                        "name": "email",
+                        "value": "indirizzo2@email.it",
+                        "description": ""
+                    },
+                    {
+                        "id": "pair_ab46ca67425345a1ad1676f7aa63b273",
+                        "name": "password",
+                        "value": "Franco128",
+                        "description": ""
+                    }
+                ]
+            },
+            "parameters": [],
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "multipart/form-data",
+                    "id": "pair_5ee6bc8503ca44779e1791c7317dcc2c"
+                }
+            ],
+            "authentication": {},
+            "metaSortKey": -1634834204528,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "req_63768d48aa7341f0a4efaf8f0efbbb3e",
+            "parentId": "fld_dd649e21c1864e88873720923303d8d8",
+            "modified": 1634836494090,
+            "created": 1634836464365,
+            "url": "http://127.0.0.1:5000/customers/1",
+            "name": "get customer by id",
+            "description": "",
+            "method": "GET",
+            "body": {},
+            "parameters": [],
+            "headers": [],
+            "authentication": {},
+            "metaSortKey": -1634834204478,
+            "isPrivate": false,
+            "settingStoreCookies": true,
+            "settingSendCookies": true,
+            "settingDisableRenderRequestBody": false,
+            "settingEncodeUrl": true,
+            "settingRebuildPath": true,
+            "settingFollowRedirects": "global",
+            "_type": "request"
+        },
+        {
+            "_id": "env_0a6b7cc1f785c4121919f32992e1015cb11a2546",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634834164663,
+            "created": 1634834164663,
+            "name": "Base Environment",
+            "data": {},
+            "dataPropertyOrder": null,
+            "color": null,
+            "isPrivate": false,
+            "metaSortKey": 1634834164663,
+            "_type": "environment"
+        },
+        {
+            "_id": "jar_0a6b7cc1f785c4121919f32992e1015cb11a2546",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634834164665,
+            "created": 1634834164665,
+            "name": "Default Jar",
+            "cookies": [],
+            "_type": "cookie_jar"
+        },
+        {
+            "_id": "spc_ee80a340d33b4a0087a471d6fab0b102",
+            "parentId": "wrk_732e21f869c545bd9aa44f78fdfc8b0f",
+            "modified": 1634834164660,
+            "created": 1634834164660,
+            "fileName": "eCommerce Database",
+            "contents": "",
+            "contentType": "yaml",
+            "_type": "api_spec"
+        }
+    ]
+}

@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS Rimborso (
     id_cliente INTEGER NOT NULL,
     id_dipendente INTEGER NOT NULL,
     importo INTEGER NOT NULL,
-    data_versamento DATE NOT NULL,
+    data_versamento DATE NULL,
     FOREIGN KEY (id_cliente) REFERENCES Cliente(id),
     FOREIGN KEY (id_dipendente) REFERENCES Dipendente(id)
 );

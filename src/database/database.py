@@ -22,6 +22,7 @@ def get_results_as_dict(query, arguments, extract_function):
     results = []
     for row in cur.execute(f"{query}", arguments):
         results.append(extract_function(row))
+
     return results
 
 
@@ -132,9 +133,9 @@ def get_all_products():
 
 
 def get_product_by_category(category_name):
-    query = "SELECT * FROM Prodotto WHERE id_categoria = (SELECT id FROM Categoria WHERE nome = ?)"
+    query = "SELECT * FROM Prodotto WHERE id_categoria = (SELECT id FROM Categoria WHERE nome=?)"
 
-    return get_results_as_dict(query, (category_name, ), extract_product)
+    return get_results_as_dict(query, (category_name,), extract_product)
 
 
 def insert_product(data):
@@ -241,5 +242,29 @@ def insert_employee(data):
 
 def insert_sales(data):
     query = "INSERT INTO ProdottoScontato (id_prodotto, data_inizio, data_fine, prezzo_scontato) VALUES (?, ?, ?, ?)"
+
+    execute_template(query, data)
+
+
+def get_all_refunds():
+    query = "SELECT * FROM Rimborso"
+
+    return get_results_as_dict(query, (), extract_refund)
+
+
+def insert_refund(data):
+    query = "INSERT INTO Rimborso (id_cliente, id_dipendente, importo) VALUES (?, ?, ?)"
+
+    execute_template(query, data)
+
+
+def delete_product(data):
+    query = "DELETE FROM Prodotto WHERE id=?"
+
+    execute_template(query, data)
+
+
+def delete_product_from_order(data):
+    query = "DELETE FROM ContenutoOrdine WHERE id_ordine=? AND id_prodotto=?"
 
     execute_template(query, data)

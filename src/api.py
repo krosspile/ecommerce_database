@@ -35,12 +35,10 @@ def insert_customer():
             password_hash = hashlib.sha256(
                 password.encode('utf-8')).hexdigest()
             database.insert_customer((name, surname, email, password_hash))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_customers())
+    return jsonify(database.get_all_customers())
 
 
 @app.route("/categories", methods=['GET', 'POST'])
@@ -49,12 +47,10 @@ def categories():
         try:
             name = request.form['name']
             database.insert_category((name,))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_categories())
+    return jsonify(database.get_categories())
 
 
 @app.route("/employees", methods=['GET', 'POST'])
@@ -67,12 +63,10 @@ def employees():
             tax_id = request.form['tax_id']
 
             database.insert_employee((hiring_date, name, surname, tax_id))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_employee())
+    return jsonify(database.get_all_employee())
 
 
 @app.route("/orders/<customer_id>", methods=['GET'])
@@ -88,12 +82,10 @@ def orders():
             address = request.form['address']
 
             database.insert_order((id_customer, address))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_orders())
+    return jsonify(database.get_all_orders())
 
 
 @app.route("/pay/<order_id>", methods=['UPDATE'])
@@ -113,12 +105,10 @@ def reports():
             description = request.form['description']
 
             database.insert_report((id_order, description))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_reports())
+    return jsonify(database.get_all_reports())
 
 
 @app.route("/reports/order/<order_id>", methods=['GET'])
@@ -143,12 +133,16 @@ def order_details(id):
                 return Response(status=500)
 
             database.insert_order_details((id_order, id_product, quantity))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_order_details(id))
+    return jsonify(database.get_order_details(id))
+
+
+@app.route("/order/<id>/details/<id_product>", methods=['DELETE'])
+def delete_product_order(id, id_product):
+    database.delete_product_from_order((id, id_product))
+    return Response(status=200)
 
 
 @app.route("/products", methods=['GET', 'POST'])
@@ -168,18 +162,23 @@ def products():
 
             database.insert_product(
                 (id_category, brand, model, size, color, price, gender))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_products())
+    return jsonify(database.get_all_products())
+
+
+@app.route("/products/<product_id>", methods=['DELETE'])
+def delete_products(product_id):
+    jsonify(database.delete_product(product_id))
+    return Response(status=200)
 
 
 @app.route("/products/category", methods=['GET'])
 def get_product_by_category():
     try:
         category = request.args.get('category')
+        print(category)
         return jsonify(database.get_product_by_category(category))
     except:
         return Response(status=500)
@@ -206,12 +205,26 @@ def reviews():
 
             database.insert_review(
                 (id_customer, id_product, rating, comment))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_reviews())
+    return jsonify(database.get_all_reviews())
+
+
+@app.route("/refunds", methods=['GET', 'POST'])
+def refunds():
+    if request.method == 'POST':
+        try:
+            id_customer = request.form['id_customer']
+            id_employer = request.form['id_employer']
+            money = request.form['money']
+
+            database.insert_refund(
+                (id_customer, id_employer, money))
+        except:
+            return Response(status=500)
+
+    return jsonify(database.get_all_refunds())
 
 
 @app.route("/refunds/employee/<id>", methods=['GET'])
@@ -234,12 +247,10 @@ def closed_report():
 
             database.insert_closed_report(
                 (id_report, id_employee, description))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_closed_report())
+    return jsonify(database.get_all_closed_report())
 
 
 @app.route("/reports/closed/employee/<id>", methods=['GET'])
@@ -278,12 +289,10 @@ def sales():
 
             database.insert_sales(
                 (id_product, start_date, end_date, new_price))
-            return Response(status=200)
         except:
             return Response(status=500)
 
-    else:
-        return jsonify(database.get_all_sales())
+    return jsonify(database.get_all_sales())
 
 
 database.init_tables()
